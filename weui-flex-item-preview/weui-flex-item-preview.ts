@@ -8,11 +8,16 @@ export interface WeuiFlexItemProps {
     isItem: boolean;
     children: any[];
     style: any;
+    title: string;
 }
 export class WeuiFlexItemDefault implements WeuiFlexItemProps {
     isItem = true;
     children = [];
-    style = {}
+    style = {
+        [`background-color`]: '#efefef',
+        [`color`]: '#fff'
+    };
+    title = 'flex项目';
 }
 @Component({
     selector: 'weui-flex-item-preview',

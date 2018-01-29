@@ -13,9 +13,12 @@ export class WeuiFlexDefault implements WeuiFlexProps {
     isItem = true;
     children = [];
     style = {
-        width: '100%',
-        height: '100px'
-    }
+        [`width.%`]: '100',
+        [`height.px`]: '100',
+        [`background-color`]: '#efefef',
+        color: '#000'
+    };
+    title = 'flex容器';
 }
 @Component({
     selector: 'weui-flex-preview',

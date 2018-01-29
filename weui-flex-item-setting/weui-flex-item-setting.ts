@@ -2,23 +2,27 @@ import {
     Component, KeyValueDiffers,
     ElementRef, Renderer2, HostListener
 } from '@angular/core';
-import { ReactComponent } from 'ng-react-component';
+import { ReactComponentSetting } from 'ng-react-component';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
     selector: 'weui-flex-item-setting',
     templateUrl: './weui-flex-item-setting.html',
     styleUrls: ['./weui-flex-item-setting.scss']
 })
-export class WeuiFlexItemSettingComponent extends ReactComponent<any, any> {
+export class WeuiFlexItemSettingComponent extends ReactComponentSetting<any, any> {
     constructor(
         _differs: KeyValueDiffers,
         _ele: ElementRef,
-        _render: Renderer2
+        _render: Renderer2,
+        fb: FormBuilder
     ) {
-        super(_differs, _ele, _render);
+        super(_differs, _ele, _render,fb);
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.initStyleForm();
+    }
 
     onPropsChange() { }
 
