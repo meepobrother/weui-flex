@@ -12,10 +12,7 @@ export interface WeuiFlexItemProps {
 export class WeuiFlexItemDefault implements WeuiFlexItemProps {
     isItem = true;
     children = [];
-    style = {
-        width: '100%',
-        height: '100px'
-    }
+    style = {}
 }
 @Component({
     selector: 'weui-flex-item-preview',

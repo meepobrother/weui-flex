@@ -1,22 +1,2 @@
 <p class="props-title">{{props.title}}</p>
-
-<div class="weui-cells weui-cells_form" [class.focus]="props.focus">
-    <div class="weui-cell">
-        <div class="weui-cell__hd">
-            <label class="weui-label">宽度</label>
-        </div>
-        <div class="weui-cell__bd">
-            <input class="weui-input" type="number" placeholder="宽度" (change)="onChange('width',$event.target.value,'vw')">
-        </div>
-    </div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd">
-            <label class="weui-label">高度</label>
-        </div>
-        <div class="weui-cell__bd">
-            <input class="weui-input" type="number" placeholder="高度" (change)="onChange('height',$event.target.value,'vh')">
-        </div>
-    </div>
-</div>
-
 <ng-container *ngComponent="props.children;preview: false;"></ng-container>
