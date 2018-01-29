@@ -1,19 +1,28 @@
 import {
     Component, KeyValueDiffers,
     ElementRef, Renderer2, HostListener,
-    HostBinding
+    HostBinding, OnInit
 } from '@angular/core';
 import { ReactComponent } from 'ng-react-component';
 export interface WeuiFlexItemProps {
     isItem: boolean;
     children: any[];
+    style: any;
+}
+export class WeuiFlexItemDefault implements WeuiFlexItemProps {
+    isItem = true;
+    children = [];
+    style = {
+        width: '100%',
+        height: '100px'
+    }
 }
 @Component({
     selector: 'weui-flex-item-preview',
     templateUrl: './weui-flex-item-preview.html',
     styleUrls: ['./weui-flex-item-preview.scss']
 })
-export class WeuiFlexItemPreviewComponent extends ReactComponent<WeuiFlexItemProps, any> {
+export class WeuiFlexItemPreviewComponent extends ReactComponent<WeuiFlexItemProps, any> implements OnInit {
     @HostBinding('class.weui-flex__item') _item: boolean = true;
     constructor(
         _differs: KeyValueDiffers,
@@ -21,6 +30,10 @@ export class WeuiFlexItemPreviewComponent extends ReactComponent<WeuiFlexItemPro
         _render: Renderer2
     ) {
         super(_differs, _ele, _render);
+    }
+
+    ngOnInit() {
+        this.setStyle(this.props.style);
     }
 
     onPropsChange() { }

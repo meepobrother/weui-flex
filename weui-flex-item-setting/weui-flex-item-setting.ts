@@ -18,9 +18,26 @@ export class WeuiFlexItemSettingComponent extends ReactComponent<any, any> {
         super(_differs, _ele, _render);
     }
 
+    ngOnInit() { }
+
     onPropsChange() { }
 
     onStateChange() {
-        console.log(this.state);
+
+    }
+
+    onChange(name: string, vlaue: string, unit: string) {
+        const num = parseInt(vlaue);
+        this.setProps({
+            ...this.props,
+            ...{
+                style: {
+                    ...this.props.style,
+                    ...{
+                        [`${name}`]: num < 100 ? num + unit : `100${unit}`
+                    }
+                }
+            }
+        });
     }
 }

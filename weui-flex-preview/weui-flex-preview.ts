@@ -6,6 +6,16 @@ import {
 import { ReactComponent } from 'ng-react-component';
 export interface WeuiFlexProps {
     children: any[];
+    style: any;
+}
+
+export class WeuiFlexDefault implements WeuiFlexProps {
+    isItem = true;
+    children = [];
+    style = {
+        width: '100%',
+        height: '100px'
+    }
 }
 @Component({
     selector: 'weui-flex-preview',
@@ -20,6 +30,10 @@ export class WeuiFlexPreviewComponent extends ReactComponent<WeuiFlexProps, any>
         _render: Renderer2
     ) {
         super(_differs, _ele, _render);
+    }
+
+    ngOnInit() {
+        this.setStyle(this.props.style);
     }
 
     onPropsChange() { }
