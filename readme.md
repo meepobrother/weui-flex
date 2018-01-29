@@ -1,22 +1,35 @@
 ```ts
-import { WeuiFlexPreviewComponent } from './weui-flex-preview/weui-flex-preview';
+import { WeuiFlexPreviewComponent, WeuiFlexDefault } from './weui-flex-preview/weui-flex-preview';
 import { WeuiFlexSettingComponent } from './weui-flex-setting/weui-flex-setting';
-import { WeuiFlexItemPreviewComponent } from './weui-flex-item-preview/weui-flex-item-preview';
+
+import { WeuiFlexItemPreviewComponent, WeuiFlexItemDefault } from './weui-flex-item-preview/weui-flex-item-preview';
 import { WeuiFlexItemSettingComponent } from './weui-flex-item-setting/weui-flex-item-setting';
-export declare const both: {
+
+export const both = {
     'weui-flex': {
-        setting: typeof WeuiFlexSettingComponent;
-        view: typeof WeuiFlexPreviewComponent;
-    };
+        setting: WeuiFlexSettingComponent,
+        view: WeuiFlexPreviewComponent,
+        default: WeuiFlexDefault
+    },
     'weui-flex-item': {
-        setting: typeof WeuiFlexItemSettingComponent;
-        view: typeof WeuiFlexItemPreviewComponent;
-    };
+        setting: WeuiFlexItemSettingComponent,
+        view: WeuiFlexItemPreviewComponent,
+        default: WeuiFlexItemDefault
+    }
 };
-export declare const preview: {
-    'weui-flex': typeof WeuiFlexPreviewComponent;
+
+export const preview = {
+    'weui-flex': WeuiFlexPreviewComponent,
+    'weui-flex-item': WeuiFlexItemPreviewComponent
 };
-export declare const entrys: typeof WeuiFlexSettingComponent[];
+
+export const entrys = [
+    WeuiFlexSettingComponent,
+    WeuiFlexPreviewComponent,
+    WeuiFlexItemSettingComponent,
+    WeuiFlexItemPreviewComponent
+];
+
 export { WeuiFlexProps } from './weui-flex-preview/weui-flex-preview';
 export { WeuiFlexItemProps } from './weui-flex-item-preview/weui-flex-item-preview';
 ```
